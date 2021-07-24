@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingIndicator from '../../components/essentials/LoadingIndicator';
 import Overlay from '../../components/essentials/Overlay';
 import OKRApp from '../OKRApp';
-import './App.css';
+import './App.scss';
 
 function App() {
 	return (

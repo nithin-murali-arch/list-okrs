@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import events from '../../../utils/events';
 import { subscribeEvent, unsubscribeEvent } from '../../../utils/pub-sub';
 
-import './Overlay.css';
+import './Overlay.scss';
 
 export default function Overlay() {
 	const [showOverlay, setShowOverlay] = useState(false);

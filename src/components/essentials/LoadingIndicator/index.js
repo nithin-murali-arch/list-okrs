@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import events from '../../../utils/events';
 import { publishEvent, subscribeEvent, unsubscribeEvent } from '../../../utils/pub-sub';
 
-import './LoadingIndicator.css';
+import './LoadingIndicator.scss';
 
 export default function LoadingIndicator() {
 	const [showLoading, setShowLoading] = useState(false);
