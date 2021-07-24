@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  z-index: 1;
+}
+
+.App > .loadingio-spinner{
+	z-index: 2;
+}
+
+.App > .overlay{
+	z-index: 1;
 }
 
 .App-logo {
