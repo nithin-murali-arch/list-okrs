@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 /* eslint-disable no-unused-vars */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -5,6 +6,8 @@ import OKRList from '../../components/OKRs/OKRList';
 import axiosWrapper from '../../utils/axios-wrapper';
 import URLS from '../../utils/urls';
 import { processOKRs } from './OKRAppMixins';
+
+import './OKRApp.scss';
 
 export default function OKRApp() {
 	const [okrs, setOKRs] = useState([]);
@@ -16,8 +19,6 @@ export default function OKRApp() {
 		async function loadOKRs() {
 			const response = await axiosWrapper.get(URLS.GET_OKR_LIST);
 			const { okrs, filters } = processOKRs(response.data);
-			filters.sort();
-			filters.unshift('');
 			setOKRs(okrs);
 			setFilteredOKRs(okrs);
 			setAvailableFilters(filters);
@@ -42,15 +43,22 @@ export default function OKRApp() {
 	}, [currentFilter]);
 
 	return (
-		<div className="okr-ctr">
-			<select onChange={(value) => setCurrentFilter(value)}>
+		<div className="okr-ctr flex--column">
+			<select
+				placeholder="Choose a filter"
+				className="filter-okrs"
+				value={currentFilter}
+				onChange={(event) => {
+					setCurrentFilter(event.target.value);
+				}}
+			>
 				{
 					availableFilters.map((filter) => (
-						<option key={filter} value={filter}>{filter}</option>
+						<option key={filter.key} value={filter.key}>{filter.label}</option>
 					))
 				}
 			</select>
-			<OKRList />
+			<OKRList okrs={filteredOKRs} />
 		</div>
 	);
 }

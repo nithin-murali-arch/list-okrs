@@ -3,9 +3,13 @@
 	src: url('./fonts/Roboto-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
 }
 
+*{
+	outline: none!important;
+}
+
 body {
 	margin: 0;
-	font-family: 'Roboto';
+	font-family: 'Roboto'!important;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	height: 100vh;
@@ -14,6 +18,18 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+select{
+    border: solid 2.5px #9E9E9E;
+    width: 10rem;
+    height: 2rem;
+    border-radius: 0.25rem;
+	cursor: pointer;
+}
+
+select:hover, select:active{
+	border: solid 2.5px #264653;
 }
 
 .pA{
@@ -35,4 +51,21 @@ code {
 
 .flex--row-ac{
 	align-items: center;
+}
+
+.flex--column, .flex--column-ac{
+	display: flex;
+	flex-direction: column;
+}
+
+.flex--column-ac{
+	align-items: center;
+}
+
+.cp{
+	cursor: pointer;
+}
+
+.vHidden{
+	visibility: hidden;
 }

@@ -1,0 +1,27 @@
+.okr-children{
+	max-height: 100%;
+	transition: max-height 0.1s cubic-bezier(0.4, 0, 1, 1);
+}
+
+.okr-children.hide{
+	max-height: 0;
+	overflow:hidden;
+}
+
+.okr-index{
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.okr-children{
+	margin-left: 3rem;
+}
+
+.okr-list-ctr > .okr-node{
+	margin-top:	0.75rem; 
+	margin-bottom: 0.75rem;
+}
+
+.okr-children > .okr-node{
+	margin-top: 1rem;
+}

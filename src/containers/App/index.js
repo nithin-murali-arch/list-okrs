@@ -1,6 +1,7 @@
 import React from 'react';
 import LoadingIndicator from '../../components/essentials/LoadingIndicator';
 import Overlay from '../../components/essentials/Overlay';
+import Modal from '../../components/essentials/Modal';
 import OKRApp from '../OKRApp';
 import './App.scss';
 
@@ -17,6 +18,7 @@ function App() {
 			</div>
 			<LoadingIndicator />
 			<Overlay />
+			<Modal />
 			<OKRApp />
 		</div>
 	);

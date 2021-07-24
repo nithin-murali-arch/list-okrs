@@ -13,8 +13,18 @@ export function processOKRs(okrs = []) {
 		}
 		filtersMap[okr.category] = true;
 	});
+	let filters = Object.keys(filtersMap);
+	filters.sort();
+	filters = filters.map((filter) => ({
+		key: filter,
+		label: filter,
+	}));
+	filters.unshift({
+		key: '',
+		label: 'Select a filter',
+	});
 	return {
 		okrs: Object.values(okrMap),
-		filters: Object.keys(filtersMap),
+		filters,
 	};
 }

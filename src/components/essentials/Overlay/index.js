@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import events from '../../../utils/events';
-import { subscribeEvent, unsubscribeEvent } from '../../../utils/pub-sub';
+import { publishEvent, subscribeEvent, unsubscribeEvent } from '../../../utils/pub-sub';
 
 import './Overlay.scss';
 
@@ -16,7 +16,14 @@ export default function Overlay() {
 		};
 	}, []);
 
+	function handleClose() {
+		const dependentEvents = [events.SHOW_POPUP];
+		dependentEvents.forEach((event) => {
+			publishEvent(event, false);
+		});
+	}
+
 	return (
-		<div className={`pA max-dims overlay ${showOverlay ? '' : 'dn'}`} />
+		<div onClick={handleClose} className={`pA max-dims overlay ${showOverlay ? '' : 'dn'}`} />
 	);
 }
